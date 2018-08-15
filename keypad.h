@@ -26,6 +26,8 @@
 #define ROW_SIZE 4
 #define COL_SIZE 4
 
+#define NONE '-'
+
 #define KEY_0 '0'
 #define KEY_1 '1'
 #define KEY_2 '2'
@@ -53,6 +55,7 @@ class Keypad{
         unsigned int debounceTime;
         uint8_t row[ROW_SIZE];
         uint8_t col[COL_SIZE];
+        uint8_t pad[ROW_SIZE][COL_SIZE];
 };
 
 #endif
