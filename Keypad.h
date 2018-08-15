@@ -53,9 +53,9 @@ class Keypad
         Keypad();
         ~Keypad();
         void begin();
-        char read();                                // Read keypad
+        char read();                                // Read a single key on the keypad
         void setDebounceTime(unsigned int time);    // Set debounce time
-        String readPassword(char start = '*', char end = '#', unsigned int timeout = 15000); // Read keypad
+        String readPassword(char start = '*', char end = '#', unsigned int timeout = 15000); // Read a password on the keypad
     
     private:
         unsigned int debounceTime;
