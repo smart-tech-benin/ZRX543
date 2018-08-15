@@ -1,7 +1,9 @@
 /**
-    @firme: Smart Technology Benin
-    @authpr: AMOUSSOU Z. Kenneth
-    @Date: 15/08/2018
+    Powered by Smart Technology Benin
+    
+    @autor: AMOUSSOU Z. Kenneth
+    @date: 15/08/2018
+    @version: 1.0
 */
 
 #ifndef KEYPAD_H
@@ -45,17 +47,26 @@
 #define KEY_STAR '*'
 #define KEY_HASH '#'
 
-class Keypad{
+class Keypad
+{
     public:
-        Keypad()
+        Keypad();
+        ~Keypad();
+        void begin();
         char read();                                // Read keypad
         void setDebounceTime(unsigned int time);    // Set debounce time
+        String readPassword(char start = '*', char end = '#', unsigned int timeout = 15000); // Read keypad
     
     private:
         unsigned int debounceTime;
-        uint8_t row[ROW_SIZE];
-        uint8_t col[COL_SIZE];
-        uint8_t pad[ROW_SIZE][COL_SIZE];
+        uint8_t row[ROW_SIZE] = { R1, R2, R3, R4 };;
+        uint8_t col[COL_SIZE] = { C1, C2, C3, C4 };;
+        uint8_t pad[ROW_SIZE][COL_SIZE] = {     \
+           { KEY_1, KEY_2, KEY_3, KEY_A },      \
+           { KEY_4, KEY_5, KEY_6, KEY_B },      \
+           { KEY_7, KEY_8, KEY_9, KEY_C },      \
+           { KEY_STAR, KEY_0, KEY_HASH, KEY_D } \
+        };
 };
 
 #endif
